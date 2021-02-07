@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6 Tagged template literals</title>
+    <style>
+      .highlight {
+        background: yellow;
+        padding: 2px;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    </style>
+</head>
+<body>
+  <script>
+    const name = "Abel";
+    const age = 30;
+    const city = "Madrid";
+
+    var oldMessage = "Mi nombre es " + name + ", tengo " + age + " años y vivo en " + city;
+    var newMessage = `Mi nombre es ${name}, tengo ${age} años y vivo en ${city}`;
+
+    console.log(oldMessage);
+    console.log(newMessage);
+
+    function highlight(strings, ...values) {
+      const highlightedValue = values.map(value => {
+        return `<span class="highlight">${value}</span>`
+      });
+      let str = "";
+      strings.forEach((string, i) => {
+        str += string + (highlightedValue[i] || "") ;
+      });
+      return str;
+    }
+    /* Esta función recibe un template literal, lo analiza y lo descompone en dos parámetros, strings y ...values, que son dos arrays.
+    A continuación, iteramos sobre values para reemplazar el texto de cada variable con un trozo de html, con una clase de CSS incorporada. 
+    Por último, componemos de nuevo la cadena entera añadiéndoles un valor de cada array y devolvemos la cadena compuesta. 
+    */ 
+    const newerMessage = highlight`Mi nombre es ${name}, tengo ${age} años y vivo en ${city}`;
+    document.body.innerHTML = newerMessage;
+
+  </script>
+</body>
+</html>

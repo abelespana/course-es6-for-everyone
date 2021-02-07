@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Multiple promises</title>
+</head>
+<body>
+  <p>Psst, echa un vistazo a la consola</p>
+  <script>
+  // Cuando tienes dos promesas encadenadas, puedes usar métodos específicos
+  // Primera promesa 
+  const weather = new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({temperature: 29, condition: "Sunny"})
+    }, 2000)
+  });
+
+  const tweets = new Promise((resolve) => {
+    resolve(['I like cake', 'BBQ is good too!']);
+  });
+
+  // Manejando ambas promesas a la vez:
+  (function () {
+    console.log("buscando tiempo y tweets...");
+    Promise.all([weather, tweets]) // Array de promesas
+    .then(responses => {
+      const [weatherData, tweetsStrings] = responses; // Destructuring
+      console.log(weatherData);
+      console.log(tweetsStrings);
+    });
+  })();
+
+  </script>
+  
+</body>
+</html>

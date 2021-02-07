@@ -1,0 +1,23 @@
+{
+  "name": "es6-examples",
+  "version": "1.0.0",
+  "description": "Examples from Wes Bos's course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.15.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1"
+  },
+  "dependencies": {
+    "sweetalert2": "^8.2.6",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
+  }
+}
